@@ -1,30 +1,69 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Add Map</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="./js/main.js" defer></script> -->
+    <!-- <link rel="stylesheet" href="./css/main.css"> -->
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <h3>My Google Maps Demo</h3>
+    <title>Document</title>
+</head>
+
+<body>
+    hello!
+    <div>
+        <div id="result">
+            <form action="">
+                <input type="text" name="" id="inputText">
+                <button id="btn">押す</button>
+            </form>
+        </div>
+        <h3>My Google Maps Demo</h3>
     <!--The div element for the map -->
     <div id="map"></div>
+    </div>
+    </div>
 
-    <!-- 
-     The `defer` attribute causes the callback to execute after the full HTML
-     document has been parsed. For non-blocking uses, avoiding race conditions,
-     and consistent behavior across browsers, consider loading using Promises
-     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
-    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+
+
+        //ホットペッパーーーーーーーーーーーーーーーーー！
+        const url = "http://webservice.recruit.co.jp/hotpepper/shop/v1/?key=bb80428ae528710b&keyword=E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8B%E3%83%83%E3%82%AF%E3%80%80%E6%9D%B1%E4%BA%AC&format=json";
+
+        // console.log(url);
+        axios.get(url)
+            .then(function (response) {
+                console.log(response);
+
+
+                const htmlElements = [];
+                for (let i = 0; i < 1; i++) {
+                    // $("#btn").on("click", function () {
+                    htmlElements.push(`<div>
+                <p id="recipe-title">"${response.data}"</p></div>`);
+                }
+                $('#result').html(htmlElements);
+
+            })
+
+
+
+    </script>
+    
+    //googlemap
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv1jCDYdaz7X9RIr4EsBa2Y2FKFEzJZqE&callback=initMap&v=weekly"
       defer
     ></script>
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</body>
     
-  </body>
 </html>
