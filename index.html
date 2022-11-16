@@ -5,27 +5,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="./js/main.js" defer></script> -->
+    <!-- <link rel="stylesheet" href="./css/main.css"> -->
     <title>Document</title>
 </head>
 
 <body>
     hello!
-    <p>鬼塚　ここに加えました もっと加えた</p>
+    <h1>title</h1>
     <div>
-        <h1>title</h1>
-        <div>
-            <img src="#" alt="">
+        <div id="result">
+            <form action="">
+                <input type="text" name="" id="inputText">
+                <button id="btn">押す</button>
+            </form>
         </div>
     </div>
-    <div>
-        <form action="">
-            <input type="text" name="" id="">
-            <select name="" id="">
-                <option value="">aaa</option>
-                <option value="">bbb</option>
-            </select>
-        </form>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+
+
+        //ホットペッパーーーーーーーーーーーーーーーーー！
+        const url = "http://webservice.recruit.co.jp/hotpepper/shop/v1/?key=bb80428ae528710b&keyword=E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8B%E3%83%83%E3%82%AF%E3%80%80%E6%9D%B1%E4%BA%AC&format=json";
+
+        // console.log(url);
+        axios.get(url)
+            .then(function (response) {
+                console.log(response);
+
+
+                const htmlElements = [];
+                for (let i = 0; i < 1; i++) {
+                    // $("#btn").on("click", function () {
+                    htmlElements.push(`<div>
+                <p id="recipe-title">"${response.data}"</p></div>`);
+                }
+                $('#result').html(htmlElements);
+
+            })
+
+
+
+    </script>
+
 </body>
 
 </html>
